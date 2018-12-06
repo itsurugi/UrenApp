@@ -63,6 +63,7 @@
             this.btnLogout.TabIndex = 2;
             this.btnLogout.Text = "Uitloggen";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnInsertTemplate
             // 

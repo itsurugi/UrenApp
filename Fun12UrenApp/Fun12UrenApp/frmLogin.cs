@@ -25,8 +25,9 @@ namespace Fun12UrenApp
             if(login.LoginCheck(txtUsername.Text, txtPassword.Text))
             {
                 MessageBox.Show("woopwoop");
-                menu.Show();
                 this.Hide();
+                menu.ShowDialog();
+                this.Show();
             }
             else
             {

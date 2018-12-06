@@ -32,5 +32,10 @@ namespace Fun12UrenApp
             createtemplate.ShowDialog();
             this.Show();
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
