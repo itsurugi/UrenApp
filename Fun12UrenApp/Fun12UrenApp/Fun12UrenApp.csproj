@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Classes\Login.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="frmInsertHours.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInsertHours.Designer.cs">
+      <DependentUpon>frmInsertHours.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,8 +68,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmInsertHours.resx">
+      <DependentUpon>frmInsertHours.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

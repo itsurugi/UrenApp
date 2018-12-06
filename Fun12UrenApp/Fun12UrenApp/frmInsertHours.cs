@@ -10,19 +10,12 @@ using System.Windows.Forms;
 
 namespace Fun12UrenApp
 {
-    public partial class frmMenu : Form
+    public partial class frmInsertHours : Form
     {
-        frmInsertHours inserthours = new frmInsertHours();
-        public frmMenu()
+        public frmInsertHours()
         {
             InitializeComponent();
-        }
-
-        private void btnInsertHours_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            inserthours.ShowDialog();
-            this.Show();
+            
         }
     }
 }
