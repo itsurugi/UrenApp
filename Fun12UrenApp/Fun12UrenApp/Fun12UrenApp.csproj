@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Classes\Login.cs" />
     <Compile Include="Classes\User.cs" />
+    <Compile Include="frmCreateTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCreateTemplate.Designer.cs">
+      <DependentUpon>frmCreateTemplate.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInsertHours.cs">
       <SubType>Form</SubType>
     </Compile>
