@@ -1,6 +1,6 @@
 ﻿namespace Fun12UrenApp
 {
-    partial class Form1
+    partial class frmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -43,6 +43,7 @@
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Inloggen";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // lblUsername
             // 
@@ -77,7 +78,7 @@
             this.txtPassword.Size = new System.Drawing.Size(170, 20);
             this.txtPassword.TabIndex = 4;
             // 
-            // Form1
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -87,8 +88,8 @@
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.btnLogin);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "frmLogin";
+            this.Text = "LoginForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
