@@ -74,6 +74,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCreateTemplate.resx">
+      <DependentUpon>frmCreateTemplate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmInsertHours.resx">
       <DependentUpon>frmInsertHours.cs</DependentUpon>
     </EmbeddedResource>

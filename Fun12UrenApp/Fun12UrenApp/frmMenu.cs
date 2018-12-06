@@ -13,6 +13,7 @@ namespace Fun12UrenApp
     public partial class frmMenu : Form
     {
         frmInsertHours inserthours = new frmInsertHours();
+        frmCreateTemplate createtemplate = new frmCreateTemplate();
         public frmMenu()
         {
             InitializeComponent();
@@ -22,6 +23,13 @@ namespace Fun12UrenApp
         {
             this.Hide();
             inserthours.ShowDialog();
+            this.Show();
+        }
+
+        private void btnInsertTemplate_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            createtemplate.ShowDialog();
             this.Show();
         }
     }

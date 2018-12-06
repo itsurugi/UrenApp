@@ -72,6 +72,7 @@
             this.btnInsertTemplate.TabIndex = 3;
             this.btnInsertTemplate.Text = "Sjabloon aanmaken";
             this.btnInsertTemplate.UseVisualStyleBackColor = true;
+            this.btnInsertTemplate.Click += new System.EventHandler(this.btnInsertTemplate_Click);
             // 
             // label1
             // 
