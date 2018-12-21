@@ -9,9 +9,15 @@ namespace Fun12UrenApp.Classes
     public class User
     {
         string username;
+        public User()
+        {
+
+        }
         public User(string username)
         {
-            this.username = username;
+            this.Username = username;
         }
+
+        public string Username { get => username; set => username = value; }
     }
 }

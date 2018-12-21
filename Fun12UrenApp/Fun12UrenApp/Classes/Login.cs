@@ -8,12 +8,13 @@ namespace Fun12UrenApp.Classes
 {
     public class Login
     {
+        Database dbclass = new Database();
         public bool LoginCheck(string username, string password)
         {
             bool LoginState = false;
-            if(username == "admin" && password == "admin")
+            User user = dbclass.Login(username, password);
+            if(user.Username != null)
             {
-                User user = new User(username);
                 LoginState = true;
             }
             return LoginState;
