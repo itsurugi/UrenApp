@@ -13,9 +13,13 @@ namespace Fun12UrenApp.Classes
         {
             bool LoginState = false;
             User user = dbclass.Login(username, password);
-            if(user.Username != null)
+            if(user != null)
             {
                 LoginState = true;
+            }
+            else
+            {
+                LoginState = false;
             }
             return LoginState;
         }

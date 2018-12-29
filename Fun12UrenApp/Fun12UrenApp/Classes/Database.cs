@@ -13,7 +13,16 @@ namespace Fun12UrenApp.Classes
         MySqlConnection dbconnect;
         MySqlCommand command;
         MySqlDataReader reader;
-        string connectionstring = "server=localhost;database=logintest;uid=root;pwd=;SslMode=none;";
+        string connectionstring = "server=localhost;database=fun12;uid=root;pwd=;SslMode=none;";
+
+        public Database() //constructor 
+        {
+            OpenConnection();
+        }
+        ~Database() //finalizer
+        {
+            CloseConnection();
+        }
 
         public void OpenConnection()
         {
@@ -37,25 +46,29 @@ namespace Fun12UrenApp.Classes
         public User Login(string username, string password)
         {
             User user = new User();
-            OpenConnection();
-            MySqlCommand command = dbconnect.CreateCommand();
-            command.CommandType = CommandType.Text;
-            command.CommandText = "select * from userinfo where username ='" + username + "' and password = '" + password + "'";
-            command.ExecuteNonQuery();
+            try
+            { 
+                command = dbconnect.CreateCommand();
+                command.CommandType = CommandType.Text;
+                command.CommandText = "select * from user where email = '" + username + "' and password = '" + password + "'";
+                command.ExecuteNonQuery();
 
-            reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                user = new User(reader.GetString("username"));
+                using (reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        user = new User(reader.GetString("email"));
+                    }
+                }
             }
-
-            reader.Close();
-           
-            CloseConnection();
-
+            catch(Exception)
+            {
+                user = null;
+            }
+            
+            
             return user;
-
         }
+
     }
 }
