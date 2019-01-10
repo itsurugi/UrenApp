@@ -7,21 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Fun12UrenApp.Classes;
 
 namespace Fun12UrenApp
 {
     public partial class frmInsertHours : Form
     {
-
-        public frmInsertHours()
+        Database dbclass;
+        User employee = new User();
+        List<Hourline> hourlist = new List<Hourline>();
+        Hoursheet hoursheet;
+        public frmInsertHours(User user, Database dbclass)
         {
             InitializeComponent();
-            InitLv();
+            this.dbclass = dbclass;
+            employee = user;
+            InitData();
+
         }
 
-        public void InitLv()
+        public void InitData()
         {
-            this.dataGridView1.Rows.Add("Maandag", "8", "Project1", "25", "Intern");
+            foreach(Project project in employee.Projects)
+            {
+                cmbProject.Items.Add(project.Projectname);
+            }
+            hoursheet = new Hoursheet(employee.Userid);
+            cmbHourtype.DataSource = Enum.GetValues(typeof(Hourtype));
             this.dataGridView1.AllowUserToAddRows = false;
         }
 
@@ -42,7 +54,19 @@ namespace Fun12UrenApp
 
         private void btnInsertHourline_Click(object sender, EventArgs e)
         {
-            this.dataGridView1.Rows.Add(cmbDays.Text, txtHours.Text, cmbProject.Text, txtTravel.Text, cmbHourtype.Text);
+            Hourline hourline = new Hourline(
+                int.Parse(txtHours.Text), 
+                DateTime.Parse(dtWorkday.Text), 
+                int.Parse(txtTravel.Text), 
+                employee.Getprojectid(cmbProject.SelectedItem.ToString()), 
+                (Hourtype)cmbHourtype.SelectedItem);
+            hoursheet.AddHourline(hourline);
+            this.dataGridView1.Rows.Add(DateTime.Parse(dtWorkday.Text).ToString("dd/MM/yy"), txtHours.Text, cmbProject.Text, txtTravel.Text, cmbHourtype.Text);
+        }
+
+        private void btnInsertHoursheet_Click(object sender, EventArgs e)
+        {
+            dbclass.InsertHoursheet(hoursheet);
         }
     }
 }

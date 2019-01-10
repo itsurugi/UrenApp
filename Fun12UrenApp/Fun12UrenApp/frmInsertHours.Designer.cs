@@ -35,12 +35,9 @@
             this.lblHourtype = new System.Windows.Forms.Label();
             this.txtHours = new System.Windows.Forms.TextBox();
             this.txtTravel = new System.Windows.Forms.TextBox();
-            this.cmbDays = new System.Windows.Forms.ComboBox();
             this.cmbProject = new System.Windows.Forms.ComboBox();
             this.cmbHourtype = new System.Windows.Forms.ComboBox();
             this.btnInsertHourline = new System.Windows.Forms.Button();
-            this.btnLoadTemplate = new System.Windows.Forms.Button();
-            this.btnLastweek = new System.Windows.Forms.Button();
             this.btnInsertHoursheet = new System.Windows.Forms.Button();
             this.btnMenu = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -50,6 +47,7 @@
             this.Reisafstand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Urentype = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Verwijderen = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dtWorkday = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,42 +100,22 @@
             // 
             this.txtHours.Location = new System.Drawing.Point(117, 136);
             this.txtHours.Name = "txtHours";
-            this.txtHours.Size = new System.Drawing.Size(121, 20);
+            this.txtHours.Size = new System.Drawing.Size(199, 20);
             this.txtHours.TabIndex = 6;
             // 
             // txtTravel
             // 
             this.txtTravel.Location = new System.Drawing.Point(117, 222);
             this.txtTravel.Name = "txtTravel";
-            this.txtTravel.Size = new System.Drawing.Size(121, 20);
+            this.txtTravel.Size = new System.Drawing.Size(199, 20);
             this.txtTravel.TabIndex = 8;
-            // 
-            // cmbDays
-            // 
-            this.cmbDays.FormattingEnabled = true;
-            this.cmbDays.Items.AddRange(new object[] {
-            "Maandag",
-            "Dinsdag",
-            "Woensdag",
-            "Donderdag",
-            "Vrijdag",
-            "Zaterdag",
-            "Zondag"});
-            this.cmbDays.Location = new System.Drawing.Point(117, 91);
-            this.cmbDays.Name = "cmbDays";
-            this.cmbDays.Size = new System.Drawing.Size(121, 21);
-            this.cmbDays.TabIndex = 10;
             // 
             // cmbProject
             // 
             this.cmbProject.FormattingEnabled = true;
-            this.cmbProject.Items.AddRange(new object[] {
-            "Project1",
-            "Project2",
-            "Project3"});
             this.cmbProject.Location = new System.Drawing.Point(117, 180);
             this.cmbProject.Name = "cmbProject";
-            this.cmbProject.Size = new System.Drawing.Size(121, 21);
+            this.cmbProject.Size = new System.Drawing.Size(199, 21);
             this.cmbProject.TabIndex = 11;
             // 
             // cmbHourtype
@@ -148,7 +126,7 @@
             "Extern"});
             this.cmbHourtype.Location = new System.Drawing.Point(117, 268);
             this.cmbHourtype.Name = "cmbHourtype";
-            this.cmbHourtype.Size = new System.Drawing.Size(121, 21);
+            this.cmbHourtype.Size = new System.Drawing.Size(199, 21);
             this.cmbHourtype.TabIndex = 12;
             // 
             // btnInsertHourline
@@ -161,24 +139,6 @@
             this.btnInsertHourline.UseVisualStyleBackColor = true;
             this.btnInsertHourline.Click += new System.EventHandler(this.btnInsertHourline_Click);
             // 
-            // btnLoadTemplate
-            // 
-            this.btnLoadTemplate.Location = new System.Drawing.Point(367, 164);
-            this.btnLoadTemplate.Name = "btnLoadTemplate";
-            this.btnLoadTemplate.Size = new System.Drawing.Size(150, 50);
-            this.btnLoadTemplate.TabIndex = 14;
-            this.btnLoadTemplate.Text = "Sjabloon laden";
-            this.btnLoadTemplate.UseVisualStyleBackColor = true;
-            // 
-            // btnLastweek
-            // 
-            this.btnLastweek.Location = new System.Drawing.Point(367, 239);
-            this.btnLastweek.Name = "btnLastweek";
-            this.btnLastweek.Size = new System.Drawing.Size(150, 50);
-            this.btnLastweek.TabIndex = 15;
-            this.btnLastweek.Text = "Vorige week laden";
-            this.btnLastweek.UseVisualStyleBackColor = true;
-            // 
             // btnInsertHoursheet
             // 
             this.btnInsertHoursheet.Location = new System.Drawing.Point(88, 341);
@@ -187,6 +147,7 @@
             this.btnInsertHoursheet.TabIndex = 16;
             this.btnInsertHoursheet.Text = "Urenstaat indienen";
             this.btnInsertHoursheet.UseVisualStyleBackColor = true;
+            this.btnInsertHoursheet.Click += new System.EventHandler(this.btnInsertHoursheet_Click);
             // 
             // btnMenu
             // 
@@ -255,20 +216,25 @@
             this.Verwijderen.UseColumnTextForButtonValue = true;
             this.Verwijderen.Width = 80;
             // 
+            // dtWorkday
+            // 
+            this.dtWorkday.Location = new System.Drawing.Point(117, 94);
+            this.dtWorkday.Name = "dtWorkday";
+            this.dtWorkday.Size = new System.Drawing.Size(199, 20);
+            this.dtWorkday.TabIndex = 20;
+            // 
             // frmInsertHours
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 561);
+            this.Controls.Add(this.dtWorkday);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.btnInsertHoursheet);
-            this.Controls.Add(this.btnLastweek);
-            this.Controls.Add(this.btnLoadTemplate);
             this.Controls.Add(this.btnInsertHourline);
             this.Controls.Add(this.cmbHourtype);
             this.Controls.Add(this.cmbProject);
-            this.Controls.Add(this.cmbDays);
             this.Controls.Add(this.txtTravel);
             this.Controls.Add(this.txtHours);
             this.Controls.Add(this.lblHourtype);
@@ -293,12 +259,9 @@
         private System.Windows.Forms.Label lblHourtype;
         private System.Windows.Forms.TextBox txtHours;
         private System.Windows.Forms.TextBox txtTravel;
-        private System.Windows.Forms.ComboBox cmbDays;
         private System.Windows.Forms.ComboBox cmbProject;
         private System.Windows.Forms.ComboBox cmbHourtype;
         private System.Windows.Forms.Button btnInsertHourline;
-        private System.Windows.Forms.Button btnLoadTemplate;
-        private System.Windows.Forms.Button btnLastweek;
         private System.Windows.Forms.Button btnInsertHoursheet;
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -308,5 +271,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Reisafstand;
         private System.Windows.Forms.DataGridViewTextBoxColumn Urentype;
         private System.Windows.Forms.DataGridViewButtonColumn Verwijderen;
+        private System.Windows.Forms.DateTimePicker dtWorkday;
     }
 }

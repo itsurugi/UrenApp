@@ -13,8 +13,10 @@ namespace Fun12UrenApp
 {
     public partial class frmLogin : Form
     {
+        Database dbclass = new Database();
         Login login = new Login();
-        frmMenu menu = new frmMenu();
+        
+        
         public frmLogin()
         {
             InitializeComponent();
@@ -22,7 +24,10 @@ namespace Fun12UrenApp
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if(login.LoginCheck(txtUsername.Text, txtPassword.Text))
+            
+            User user = login.ReturnUserData(txtUsername.Text, txtPassword.Text, dbclass);
+            frmMenu menu = new frmMenu(user, dbclass);
+            if (user != null)
             {
                 MessageBox.Show("woopwoop");
                 this.Hide();
